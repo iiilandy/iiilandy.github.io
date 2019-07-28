@@ -93,18 +93,18 @@
   };
 </script>
 
-  <meta name="description" content="前提:需要引用 shell32.dll,一般dll在电脑路径C:Windows\System32\下面。 /// &amp;lt;summary&amp;gt; ///解压zip文件 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&quot;zipFilePath&quot;&amp;gt;需要解压文件(路径)&amp;lt;/param&amp;gt; /// &amp;lt;param name=&quot;unZipDir&quot;&amp;gt;解">
-<meta name="keywords" content="编程那些事">
+  <meta name="description" content="其实真正的送别没有长亭古道，没有劝君更近一杯酒，就是在一个和平时一样的清晨，有的人留在昨天了。">
+<meta name="keywords" content="随手敲点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动解压zip文件">
-<meta property="og:url" content="jonly.cn/2019/07/20/daily 2019-07-20/index.html">
+<meta property="og:title" content="随想|那些离别">
+<meta property="og:url" content="jonly.cn/2019/07/27/daily20190726/index.html">
 <meta property="og:site_name" content="年华的博客">
-<meta property="og:description" content="前提:需要引用 shell32.dll,一般dll在电脑路径C:Windows\System32\下面。 /// &amp;lt;summary&amp;gt; ///解压zip文件 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&quot;zipFilePath&quot;&amp;gt;需要解压文件(路径)&amp;lt;/param&amp;gt; /// &amp;lt;param name=&quot;unZipDir&quot;&amp;gt;解">
+<meta property="og:description" content="其实真正的送别没有长亭古道，没有劝君更近一杯酒，就是在一个和平时一样的清晨，有的人留在昨天了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T05:34:42.227Z">
+<meta property="og:updated_time" content="2019-07-28T07:03:54.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自动解压zip文件">
-<meta name="twitter:description" content="前提:需要引用 shell32.dll,一般dll在电脑路径C:Windows\System32\下面。 /// &amp;lt;summary&amp;gt; ///解压zip文件 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&quot;zipFilePath&quot;&amp;gt;需要解压文件(路径)&amp;lt;/param&amp;gt; /// &amp;lt;param name=&quot;unZipDir&quot;&amp;gt;解">
+<meta name="twitter:title" content="随想|那些离别">
+<meta name="twitter:description" content="其实真正的送别没有长亭古道，没有劝君更近一杯酒，就是在一个和平时一样的清晨，有的人留在昨天了。">
 
 
 
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="jonly.cn/2019/07/20/daily 2019-07-20/">
+  <link rel="canonical" href="jonly.cn/2019/07/27/daily20190726/">
 
 
 
@@ -123,7 +123,7 @@
 </script>
 
   
-  <title>自动解压zip文件 | 年华的博客</title>
+  <title>随想|那些离别 | 年华的博客</title>
   
 
 
@@ -318,10 +318,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="jonly.cn/2019/07/20/daily 2019-07-20/">
+    <link itemprop="mainEntityOfPage" href="jonly.cn/2019/07/27/daily20190726/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonly Dong">
+      <meta itemprop="name" content="Dylan Dong">
       <meta itemprop="description" content="碌碌无为，堆码为生。">
       <meta itemprop="image" content="/images/bimg/jonly.png">
     </span>
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">自动解压zip文件
+          <h1 class="post-title" itemprop="name headline">随想|那些离别
 
               
             
@@ -361,7 +361,7 @@
                 
               
 
-              <time title="创建时间：2019-07-20 20:06:00" itemprop="dateCreated datePublished" datetime="2019-07-20T20:06:00+08:00">2019-07-20</time>
+              <time title="创建时间：2019-07-27 15:07:00" itemprop="dateCreated datePublished" datetime="2019-07-27T15:07:00+08:00">2019-07-27</time>
             </span>
           
 
@@ -376,7 +376,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-23 13:34:42" itemprop="dateModified" datetime="2019-07-23T13:34:42+08:00">2019-07-23</time>
+                <time title="修改时间：2019-07-28 15:03:54" itemprop="dateModified" datetime="2019-07-28T15:03:54+08:00">2019-07-28</time>
               </span>
             
           
@@ -415,58 +415,7 @@
       
 
       
-        <p>前提:需要引用 shell32.dll,一般dll在电脑路径C:Windows\System32\下面。</p>
-<pre><code class="csharp"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span>
-<span class="comment"><span class="doctag">///</span>解压zip文件</span>
-<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span>
-<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="zipFilePath"&gt;</span>需要解压文件(路径)<span class="doctag">&lt;/param&gt;</span></span>
-<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="unZipDir"&gt;</span>解压路径<span class="doctag">&lt;/param&gt;</span></span>
-<span class="function"><span class="keyword">private</span> <span class="keyword">string</span> <span class="title">UnZipFile</span>(<span class="params"><span class="keyword">string</span> zipFilePath, <span class="keyword">string</span> unZipDir</span>)</span>
-<span class="function"></span>{
-    <span class="keyword">string</span> zip = <span class="keyword">string</span>.Empty;
-    <span class="keyword">if</span> (zipFilePath.Length == <span class="number">0</span>)
-    {
-        zip = <span class="string">"压缩文件不能为空!"</span>;
-    }
-    <span class="keyword">else</span> <span class="keyword">if</span> (!zipFilePath.EndsWith(<span class="string">".zip"</span>))
-    {
-        zip = <span class="string">"文件格式不正确!"</span>;
-    }
-    <span class="keyword">else</span> <span class="keyword">if</span> (!File.Exists(zipFilePath))
-    {
-        zip = <span class="string">"压缩文件不存在!"</span>;
-    }
-    <span class="keyword">else</span>
-    {
-        <span class="keyword">if</span> (unZipDir.Length == <span class="number">0</span>)
-        {
-            unZipDir = zipFilePath.Replace(Path.GetFileName(zipFilePath), 
-            Path.GetFileNameWithoutExtension(zipFilePath));
-        }
-        <span class="keyword">if</span> (!unZipDir.EndsWith(<span class="string">"\\"</span>))
-        {
-            unZipDir += <span class="string">"\\"</span>;
-        }
-        <span class="keyword">if</span> (!Directory.Exists(unZipDir))
-        {
-            Directory.CreateDirectory(unZipDir);
-        }
-        <span class="keyword">try</span>
-        {
-            ShellClass shellClass = <span class="keyword">new</span> ShellClass();
-            Folder folder = shellClass.NameSpace(zipFilePath);
-            Folder folder2 = shellClass.NameSpace(unZipDir);
-            FolderItems folderItems = folder.Items();
-            folder2.CopyHere(folderItems, <span class="number">20</span>);
-            zip = <span class="string">"解压成功！"</span>;
-        }
-        <span class="keyword">catch</span> (Exception ex)
-        {
-            zip = ex.Message;
-        }
-    }
-    <span class="keyword">return</span> zip;
-}</code></pre>
+        <p>其实真正的送别没有长亭古道，没有劝君更近一杯酒，就是在一个和平时一样的清晨，有的人留在昨天了。</p>
 
       
     </div>
@@ -501,7 +450,7 @@
         
       
       <div style="display: inline-block">
-        <img src="/images/bimg/wechatpay.jpg" alt="Jonly Dong 微信支付">
+        <img src="/images/bimg/wechatpay.jpg" alt="Dylan Dong 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -510,7 +459,7 @@
         
       
       <div style="display: inline-block">
-        <img src="/images/bimg/alipay.jpg" alt="Jonly Dong 支付宝">
+        <img src="/images/bimg/alipay.jpg" alt="Dylan Dong 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -534,11 +483,11 @@
 
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Jonly Dong</li>
+    <strong>本文作者： </strong>Dylan Dong</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="/jonly.cn/2019/07/20/daily 2019-07-20/" title="自动解压zip文件">jonly.cn/2019/07/20/daily 2019-07-20/</a>
+    <a href="/jonly.cn/2019/07/27/daily20190726/" title="随想|那些离别">jonly.cn/2019/07/27/daily20190726/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC</a> 许可协议。转载请注明出处！</li>
@@ -554,7 +503,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/编程那些事/" rel="tag"><i class="fa fa-tag">编程那些事</i></a>
+            <a href="/tags/随手敲点/" rel="tag"><i class="fa fa-tag">随手敲点</i></a>
           
         </div>
       
@@ -567,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/11/daily 2019-07-22/" rel="next" title="TextBox只可以输小数">
-                <i class="fa fa-chevron-left"></i> TextBox只可以输小数
+              <a href="/2019/07/25/daily20190725/" rel="next" title="那年的那个中秋">
+                <i class="fa fa-chevron-left"></i> 那年的那个中秋
               </a>
             
           </div>
@@ -576,10 +525,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/22/daily 2019-07-21/" rel="prev" title="通过Http下载文件(CS)">
-                通过Http下载文件(CS) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -616,22 +561,20 @@
       <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
 
       
-
       <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
-    <img class="site-author-image" itemprop="image" src="/images/bimg/jonly.png" alt="Jonly Dong">
+    <img class="site-author-image" itemprop="image" src="/images/bimg/jonly.png" alt="Dylan Dong">
   
-  <p class="site-author-name" itemprop="name">Jonly Dong</p>
+  <p class="site-author-name" itemprop="name">Dylan Dong</p>
   <div class="site-description motion-element" itemprop="description">碌碌无为，堆码为生。</div>
 </div>
 
@@ -642,7 +585,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -665,7 +608,9 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -736,11 +681,9 @@
           
         </div>
       </div>
-
       
-
       
-
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="280" height="52" src="//music.163.com/outchain/player?type=2&id=27493175&auto=1&height=32"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -756,7 +699,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Jonly Dong</span>
+  <span class="author" itemprop="copyrightHolder">Dylan Dong</span>
 
   
 
@@ -835,6 +778,10 @@
   <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
+
+  
+  
+  
 
 
 
