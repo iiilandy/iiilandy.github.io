@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/icon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/icon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/icon.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/icon/icon.png?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="开发环境和工具必要 JDK（1.8）Oracle JDK 8u221  Tomcat（Web服务器，类似IIS）Apache Tomcat 9    IntelliJ IDEA（最流行的Java开发IDE）JetBrains IntelliJ IDEA  可选 Docker（免配置环境）Docker for Windows  NodeJS（构建前端项目）12.10.0，最新特性   VS Code">
+<meta name="keywords" content="转行必备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java项目构建工具">
+<meta property="og:url" content="jonly.cn/2019/09/11/basic/index.html">
+<meta property="og:site_name" content="年华的博客">
+<meta property="og:description" content="开发环境和工具必要 JDK（1.8）Oracle JDK 8u221  Tomcat（Web服务器，类似IIS）Apache Tomcat 9    IntelliJ IDEA（最流行的Java开发IDE）JetBrains IntelliJ IDEA  可选 Docker（免配置环境）Docker for Windows  NodeJS（构建前端项目）12.10.0，最新特性   VS Code">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-11T11:20:56.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java项目构建工具">
+<meta name="twitter:description" content="开发环境和工具必要 JDK（1.8）Oracle JDK 8u221  Tomcat（Web服务器，类似IIS）Apache Tomcat 9    IntelliJ IDEA（最流行的Java开发IDE）JetBrains IntelliJ IDEA  可选 Docker（免配置环境）Docker for Windows  NodeJS（构建前端项目）12.10.0，最新特性   VS Code">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="jonly.cn/2019/09/11/basic/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>Java项目构建工具 | 年华的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">年华的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">毕竟几人真得鹿，不知终日梦为鱼。</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="jonly.cn/2019/09/11/basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dylan Dong">
+      <meta itemprop="description" content="碌碌无为，堆码为生。">
+      <meta itemprop="image" content="/images/bimg/jonly.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="年华的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java项目构建工具
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-11 19:20:00 / 修改时间：19:20:56" itemprop="dateCreated datePublished" datetime="2019-09-11T19:20:00+08:00">2019-09-11</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="开发环境和工具"><a href="#开发环境和工具" class="headerlink" title="开发环境和工具"></a>开发环境和工具</h1><h2 id="必要"><a href="#必要" class="headerlink" title="必要"></a>必要</h2><ul>
+<li><p>JDK（1.8）<br><br><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">Oracle JDK 8u221</a></p>
+</li>
+<li><p>Tomcat（Web服务器，类似IIS）<br><br><a href="https://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener">Apache Tomcat 9</a></p>
+</li>
+</ul>
+<ul>
+<li>IntelliJ IDEA（最流行的Java开发IDE）<br><br><a href="https://www.jetbrains.com/idea" target="_blank" rel="noopener">JetBrains IntelliJ IDEA</a></li>
+</ul>
+<h2 id="可选"><a href="#可选" class="headerlink" title="可选"></a>可选</h2><ul>
+<li><p>Docker（免配置环境）<br><br><a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" target="_blank" rel="noopener">Docker for Windows</a></p>
+</li>
+<li><p>NodeJS（构建前端项目）<br><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">12.10.0，最新特性</a> </p>
+</li>
+<li><p>VS Code（轻量编辑器，目前最流行的编辑器，支持多种开发语言）<br><br><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a></p>
+</li>
+<li><p>Git（当前最流行的源代码管理工具）<br><br><a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git for Windows</a> <br><br><a href="https://tortoisegit.org/" target="_blank" rel="noopener">TortoiseGit</a> <br><br><a href="http://172.16.0.115/" target="_blank" rel="noopener">公司的测试GIT服务地址</a></p>
+</li>
+</ul>
+<h1 id="开发基础"><a href="#开发基础" class="headerlink" title="开发基础"></a>开发基础</h1><p>1、<strong>现代化的Web开发思想</strong></p>
+<pre><code>前后端分离，前端工程化，后端微服务化。</code></pre><p>2、<strong>从CS到BS的思路转换</strong></p>
+<pre><code>传统的windows单体应用程序，是一种非中心化的架构。程序所消耗的资源是程序宿主机的资源，每一个客户端都在独立的应用程序域中，一般没有服务端程序，而是直接连接到一个数据库服务来检索和持久化数据。性能问题一般是：
+1. 客户端宿主机配置导致运行慢
+2. 关系型数据库查询慢
+3. 持久化数据时的磁盘IO慢
+
+客户端架构中，一般大量使用存储过程，这样可以减少频繁更新发布产品的工作量。
+但也有多种坏处：
+1. 业务逻辑分散在代码和存储过程中，给定位bug带来障碍。
+2. SQL语言可读性差，需要花费更多时间去搞明白
+3. 数据库服务器需要耗费更多资源来承担业务逻辑运算。
+
+基于BS架构的现代化Web应用程序，是一种中心化的架构。所有使用者通过浏览器上的前端Web网站来进行使用（和后端服务进行交互），使用者越多，服务端资源占用就越多。性能问题除了数据库瓶颈，还会发生在代码中，所以要注意代码的质量。</code></pre><p>3、<strong>一些流行的Java开发框架</strong></p>
+<ul>
+<li>Spring全家桶</li>
+<li>dubbo</li>
+<li>zookeeper</li>
+<li>kafka</li>
+</ul>
+<p>4、<strong>我们目前使用的开发框架</strong></p>
+<h2 id="boot-bom工程"><a href="#boot-bom工程" class="headerlink" title="boot-bom工程"></a>boot-bom工程</h2><p>BOM（Bill of Materials）定义一整套相互兼容的jar包版本集合，使用时只需要依赖该BOM文件，即可放心的使用需要的依赖jar包，且无需再指定版本号。BOM的维护方负责版本升级，并保证BOM中定义的jar包版本之间的兼容性。  </p>
+<p>为什么需要BOM？ </p>
+<p>使用BOM除了可以方便使用者在声明依赖的客户端时不需要指定版本号外，最主要的原因是可以解决依赖冲突。 </p>
+<p>考虑以下的依赖场景： </p>
+<p>Project A依赖B 2.1.3和C 1.2.0版本<br>B 2.1.3依赖D 1.1.6版本<br>C 1.2.0依赖D 1.3.0版本 </p>
+<p>在上例中，Project A对于D的依赖就出现冲突，按照maven dependency mediation的规则，最后生效的是1.1.6版本（就近原则）。<br>在这种情况下，由于C依赖1.3.0版本的D，但是在运行时生效的确是1.1.6版本，所以在运行时很容易产生问题，如 NoSuchMethodError, ClassNotFoundException等。  </p>
+<p>为了统一各个spring-boot工程中jar包的版本，创建了了boot-bom工程，其他工程导入boot-bom，确定jar包版本。  </p>
+<p>代码目录：$/基层研发中心/070医养融合/00.公共应用/05.程序源码/boot-bom</p>
+<h2 id="jbase工程"><a href="#jbase工程" class="headerlink" title="jbase工程"></a>jbase工程</h2><p>代码目录：$/基层研发中心/070医养融合/00.公共应用/05.程序源码/iot/server/iot<br>物联网后端，根据当前需求拆分了4个模块出来，分别是 common、security、api、core。  </p>
+<ul>
+<li>common模块中定义、提供了整个工程常用的实体类、工具类等，提供给工程的其他模块调用。</li>
+<li>security 模块中配置了安全校验、登录授权。</li>
+<li>business 模块中实现了通用的基础业务，主要是查询为主，例如病区、科室、人员获取。</li>
+</ul>
+<h2 id="boot-demo-parent"><a href="#boot-demo-parent" class="headerlink" title="boot-demo-parent"></a>boot-demo-parent</h2><p>代码目录: $/基层研发中心/070医养融合/00.公共应用/05.程序源码/demo/boot-demo-parent</p>
+<ul>
+<li>admin spring boot admin server 模块，用户监控微服务运行状况<ul>
+<li>启动后访问：<a href="http://localhost:8084/spring-boot-admin-server/" target="_blank" rel="noopener">http://localhost:8084/spring-boot-admin-server/</a></li>
+</ul>
+</li>
+<li>common 模块定义工程内通用工具、异常、自定义事件等</li>
+<li>core 核心业务模块，各业务实现代码</li>
+<li>dubbo dubbo 调用示例，其中有三个子模块分别是：<ul>
+<li>dubbo-common 公用模块，制定接口标准</li>
+<li>provider 实现接口标准</li>
+<li>consumer 消费接口</li>
+</ul>
+</li>
+<li>schedule 模块为Kob作业客户端，可单独启动，不影响主业务<ul>
+<li>Kob 控制台示例：<a href="http://172.16.0.91:8669/" target="_blank" rel="noopener">http://172.16.0.91:8669/</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>框架名称</th>
+<th>说明</th>
+<th>框架名称</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>maven</td>
+<td>Java项目构建工具</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/apache/maven" target="_blank" rel="noopener">https://github.com/apache/maven</a></td>
+<td></td>
+</tr>
+<tr>
+<td>spring-boot</td>
+<td>可以快速构建Spring Web项目的Java库</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/spring-projects/spring-boot" target="_blank" rel="noopener">https://github.com/spring-projects/spring-boot</a></td>
+<td></td>
+</tr>
+<tr>
+<td>spring-boot-admin</td>
+<td>Spring Boot Admin 是一个管理和监控 Spring Boot 应用程序的开源软件</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/codecentric/spring-boot-admin" target="_blank" rel="noopener">https://github.com/codecentric/spring-boot-admin</a></td>
+<td></td>
+</tr>
+<tr>
+<td>dubbo</td>
+<td>基于Java的高性能RPC框架</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/apache/dubbo" target="_blank" rel="noopener">https://github.com/apache/dubbo</a></td>
+<td></td>
+</tr>
+<tr>
+<td>dubbo-admin</td>
+<td>Dubbo控制台，用于服务监控、负载均衡、动态路由配置等</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/apache/dubbo-admin" target="_blank" rel="noopener">https://github.com/apache/dubbo-admin</a></td>
+<td></td>
+</tr>
+<tr>
+<td>zookeeper</td>
+<td>一种中心化的服务，用于服务注册与发现</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/apache/zookeeper" target="_blank" rel="noopener">https://github.com/apache/zookeeper</a></td>
+<td></td>
+</tr>
+<tr>
+<td>kob</td>
+<td>由链家科技出品的一个中心化的作业调度系统，定义了任务调度模型，实现了任务调度的统一管理和监控</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/LianjiaTech/kob" target="_blank" rel="noopener">https://github.com/LianjiaTech/kob</a></td>
+<td></td>
+</tr>
+<tr>
+<td>druid</td>
+<td>阿里巴巴数据库事业部出品，为监控而生的数据库连接池</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/alibaba/druid" target="_blank" rel="noopener">https://github.com/alibaba/druid</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Mybatis-PageHelper</td>
+<td>Mybatis通用分页插件</td>
+<td>MIT</td>
+<td><a href="https://github.com/pagehelper/Mybatis-PageHelper" target="_blank" rel="noopener">https://github.com/pagehelper/Mybatis-PageHelper</a></td>
+<td></td>
+</tr>
+<tr>
+<td>generator</td>
+<td>生成mybatis SQL语句的Java库</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/mybatis/generator" target="_blank" rel="noopener">https://github.com/mybatis/generator</a></td>
+<td>项目对源码进行了扩展，符合公司表结构命名方式，代码路径：$/基层研发中心/070医养融合/00.公共应用/05.程序源码/generator</td>
+</tr>
+<tr>
+<td>okhttp</td>
+<td>一个Java端的HTTP客户端</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/square/okhttp" target="_blank" rel="noopener">https://github.com/square/okhttp</a></td>
+<td></td>
+</tr>
+<tr>
+<td>lombok</td>
+<td>一个可以扩展、简化Java写法的Java库</td>
+<td>MIT</td>
+<td><a href="https://github.com/rzwitserloot/lombok" target="_blank" rel="noopener">https://github.com/rzwitserloot/lombok</a></td>
+<td></td>
+</tr>
+<tr>
+<td>springfox</td>
+<td>根据Spring框架自动生成swagger-ui文档的Java库</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/springfox/springfox" target="_blank" rel="noopener">https://github.com/springfox/springfox</a></td>
+<td></td>
+</tr>
+<tr>
+<td>shiro</td>
+<td>一个轻量级的Java安全校验框架</td>
+<td>Apache2.0</td>
+<td><a href="https://github.com/apache/shiro" target="_blank" rel="noopener">https://github.com/apache/shiro</a></td>
+<td></td>
+</tr>
+<tr>
+<td>vue</td>
+<td>前端js框架</td>
+<td>MIT</td>
+<td><a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">https://github.com/vuejs/vue</a></td>
+<td></td>
+</tr>
+<tr>
+<td>element-ui</td>
+<td>前端UI框架</td>
+<td>MIT</td>
+<td><a href="https://github.com/ElemeFE/element" target="_blank" rel="noopener">https://github.com/ElemeFE/element</a></td>
+<td></td>
+</tr>
+<tr>
+<td>axios</td>
+<td>一个实现了Promise 协议的 HTTP 浏览器客户端</td>
+<td>MIT</td>
+<td><a href="https://github.com/axios/axios" target="_blank" rel="noopener">https://github.com/axios/axios</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="swagger-使用手册"><a href="#swagger-使用手册" class="headerlink" title="swagger 使用手册"></a>swagger 使用手册</h2><p><a href="http://172.16.0.91:8081/doc/development/swagger2-guide.html" target="_blank" rel="noopener">http://172.16.0.91:8081/doc/development/swagger2-guide.html</a></p>
+<h2 id="Kob-部署手册"><a href="#Kob-部署手册" class="headerlink" title="Kob 部署手册"></a>Kob 部署手册</h2><p><a href="http://172.16.0.91:8081/doc/project/kob.html" target="_blank" rel="noopener">http://172.16.0.91:8081/doc/project/kob.html</a>  </p>
+<h2 id="IDEA-插件"><a href="#IDEA-插件" class="headerlink" title="IDEA 插件"></a>IDEA 插件</h2><ul>
+<li><a href="https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines" target="_blank" rel="noopener">Alibaba Java Coding Guidelines</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/6317-lombok/" target="_blank" rel="noopener">Lombok</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/8579-translation" target="_blank" rel="noopener">Translation</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/7293-mybatis-plugin" target="_blank" rel="noopener">MyBatis plugin</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/7642-save-actions" target="_blank" rel="noopener">Save Actions</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/7495--ignore/" target="_blank" rel="noopener">.​ignore</a></li>
+</ul>
+<h1 id="开发进阶"><a href="#开发进阶" class="headerlink" title="开发进阶"></a>开发进阶</h1><p>1、<strong>编码规范</strong></p>
+<p>2、<strong>设计思想</strong></p>
+<p>3、<strong>优秀实践</strong></p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/bimg/wechatpay.jpg" alt="Dylan Dong 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/bimg/alipay.jpg" alt="Dylan Dong 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Dylan Dong</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="/jonly.cn/2019/09/11/basic/" title="Java项目构建工具">jonly.cn/2019/09/11/basic/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/转行必备/" rel="tag"><i class="fa fa-tag">转行必备</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/daily201908291955/" rel="next" title="随写|那些年你丢给我的情话">
+                <i class="fa fa-chevron-left"></i> 随写|那些年你丢给我的情话
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/bimg/jonly.png" alt="Dylan Dong">
+  
+  <p class="site-author-name" itemprop="name">Dylan Dong</p>
+  <div class="site-description motion-element" itemprop="description">碌碌无为，堆码为生。</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:lovely.yang@outlook.com" title="E-Mail &rarr; mailto:lovely.yang@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/iiilandy" title="Weibo &rarr; https://weibo.com/iiilandy" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/JonlyDong" title="Facebook &rarr; https://www.facebook.com/JonlyDong" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>Facebook</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://space.bilibili.com/392291143" title="Bilibili &rarr; https://space.bilibili.com/392291143" rel="noopener" target="_blank"><i class="fa fa-fw fa-bold"></i>Bilibili</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开发环境和工具"><span class="nav-number">1.</span> <span class="nav-text">开发环境和工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#必要"><span class="nav-number">1.1.</span> <span class="nav-text">必要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选"><span class="nav-number">1.2.</span> <span class="nav-text">可选</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发基础"><span class="nav-number">2.</span> <span class="nav-text">开发基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#boot-bom工程"><span class="nav-number">2.1.</span> <span class="nav-text">boot-bom工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jbase工程"><span class="nav-number">2.2.</span> <span class="nav-text">jbase工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boot-demo-parent"><span class="nav-number">2.3.</span> <span class="nav-text">boot-demo-parent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swagger-使用手册"><span class="nav-number">2.4.</span> <span class="nav-text">swagger 使用手册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kob-部署手册"><span class="nav-number">2.5.</span> <span class="nav-text">Kob 部署手册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA-插件"><span class="nav-number">2.6.</span> <span class="nav-text">IDEA 插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发进阶"><span class="nav-number">3.</span> <span class="nav-text">开发进阶</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">陕ICP备17016450号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dylan Dong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+</body>
+</html>
